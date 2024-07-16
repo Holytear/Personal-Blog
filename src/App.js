@@ -5,20 +5,22 @@ import Home from './pages/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import SinglePost from './pages/SinglePost';
-import Footer from './components/Footer'; // Footer bileşenini import etmeyi unutmayın
-import './App.css'; // CSS dosyasını import etmeyi unutmayın
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/post/:id" element={<SinglePost />} />
-      </Routes>
-      <Footer /> {/* Footer bileşenini ekleyin */}
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/post/:id" element={<SinglePost />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }
