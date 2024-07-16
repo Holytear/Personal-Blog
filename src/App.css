@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background-image: url('/public/portfolio.jpg');
@@ -7,20 +7,26 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #333;
+  overflow-x: hidden; /* Yatay kaydırmayı önler */
 }
 
 nav {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 1rem;
   display: flex;
-  justify-content: center; /* Elemanları ortalar */
+  justify-content: space-between; /* Navbar öğeleri arasında boşluk sağlar */
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav h2 {
   margin: 0;
-  margin-right: auto; /* Başlığı sola hizalar */
+  font-size: 1.5rem;
 }
 
 nav ul {
@@ -28,6 +34,7 @@ nav ul {
   display: flex;
   margin: 0;
   padding: 0;
+  margin-right: 2rem; /* Sağdan biraz boşluk ekler */
 }
 
 nav ul li {
@@ -37,34 +44,75 @@ nav ul li {
 nav ul li a {
   color: white;
   text-decoration: none;
+  position: relative;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
-
+nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 .container {
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 6rem auto 2rem auto; /* Navbar için üst boşluk eklendi */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+  background: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.profile p {
+  line-height: 1.6;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post {
   background: white;
-  padding: 2rem; /* Padding artırıldı */
+  padding: 2rem;
   margin-bottom: 1rem;
-  border-radius: 10px; /* Border radius artırıldı */
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .post h2 {
   margin-top: 0;
-  font-size: 1.5rem; /* Font boyutu artırıldı */
+  font-size: 1.5rem;
 }
 
 .post p {
@@ -80,17 +128,31 @@ nav ul li a:hover {
 .post a {
   color: #007bff;
   text-decoration: none;
+  position: relative;
 }
 
-.post a:hover {
-  text-decoration: underline;
+.post a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #007bff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.post a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .post:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-
 
 form {
   display: flex;
@@ -99,55 +161,48 @@ form {
 
 form input {
   margin-bottom: 1rem;
-  padding: 0.75rem; /* Padding artırıldı */
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 form button {
-  padding: 0.75rem; /* Padding artırıldı */
+  padding: 0.75rem;
   border: none;
   border-radius: 5px;
-  background-color: #333;
+  background-color: #007bff;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 form button:hover {
-  background-color: #555;
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-.profile {
-  background: white;
-  padding: 2rem; /* Padding artırıldı */
-  margin-bottom: 2rem;
-  border-radius: 10px; /* Border radius artırıldı */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.profile h2 {
-  font-size: 2rem; /* Font boyutu artırıldı */
-  margin-bottom: 1rem;
-}
-
-.profile p {
-  line-height: 1.6;
+form button:active {
+  transform: translateY(0);
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 1rem;
   text-align: center;
   margin-top: 2rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 footer a {
   color: white;
   text-decoration: none;
   margin: 0 1rem;
+  transition: color 0.3s;
 }
 
 footer a:hover {
-  text-decoration: underline;
+  color: #007bff;
 }
