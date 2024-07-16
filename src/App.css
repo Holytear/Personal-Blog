@@ -1,38 +1,153 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/public/portfolio.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: center; /* Elemanları ortalar */
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav h2 {
+  margin: 0;
+  margin-right: auto; /* Başlığı sola hizalar */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+
+
+.container {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.post {
+  background: white;
+  padding: 2rem; /* Padding artırıldı */
+  margin-bottom: 1rem;
+  border-radius: 10px; /* Border radius artırıldı */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.post h2 {
+  margin-top: 0;
+  font-size: 1.5rem; /* Font boyutu artırıldı */
+}
+
+.post p {
+  line-height: 1.6;
+}
+
+.post small {
+  display: block;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.post a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+}
+
+
+
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+form input {
+  margin-bottom: 1rem;
+  padding: 0.75rem; /* Padding artırıldı */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 0.75rem; /* Padding artırıldı */
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+form button:hover {
+  background-color: #555;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.profile {
+  background: white;
+  padding: 2rem; /* Padding artırıldı */
+  margin-bottom: 2rem;
+  border-radius: 10px; /* Border radius artırıldı */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile h2 {
+  font-size: 2rem; /* Font boyutu artırıldı */
+  margin-bottom: 1rem;
+}
+
+.profile p {
+  line-height: 1.6;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
